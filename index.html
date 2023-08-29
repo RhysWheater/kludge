@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="eng">
+    <head>
+        <title>Kludge</title>
+        <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+    </head>
+    <body>
+        <main>
+            <h1>Kludge</h1>
+            <div id="app">{{ message }}</div>
+        </main>
+        <script>
+            const { createApp, ref } = Vue;
+            const names = ['foo', 'bar', 'baz'];
+            const randomName = names[Math.floor(Math.random() * names.length)];
+            createApp({
+                setup() {
+                    const message = ref(`Your project name is: ${randomName}`)
+                    return {
+                        message
+                    }
+                }
+            }).mount('#app');
+        </script>
+    </body>
+</html>
