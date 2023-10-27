@@ -2,22 +2,36 @@
 <html lang="eng">
     <head>
         <title>Kludge</title>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
         <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css">
     </head>
     <body>
-        <main>
+        <section>
             <h1>Kludge</h1>
-            <div id="app">{{ message }}</div>
-        </main>
+            <div id="app" >
+                {{ message }}
+                <button @click="updateMessage" class="button is-primary">New name</button>
+            </div>
+        </section>
         <script>
             const { createApp, ref } = Vue;
-            const names = ['foo', 'bar', 'baz'];
-            const randomName = names[Math.floor(Math.random() * names.length)];
+            const names = [
+                "Ashlee", "Ayra", "Baby Luigi", "Baby Mario", "Birdo", "Bob-omb", "Boo", "Bubbles", "Buzz Buzz", "Captain Falcon", "Chain Chomp", "Cheep-Cheep", "Crazy Hand", "Dedede", "Diddy Kong", "Donkey Kong", "Donkey Kong, Jr.", "Dr. E.Gadd", "Dr. Mario", "Dr. Stewart", "Eliwood", "Felix", "Flying Ducks", "Frogfucius", "Garet", "Geno", "Goomba", "Hector", "Ice Climbers", "Jeff", "Jeigan", "Jenna", "Jody Summer", "Kamek", "Kirby", "Koopa Family", "Bowser", "Bowser Koopa Junior", "Bowser Jr.", "Kammy Koopa", "Koopa Kid", "Koopa Troopa", "Ganondorf", "Link", "Sheik", "Young Link", "Princess Zelda", "Lex", "Lip", "Little Mac", "Luigi", "Lyndis", "Mario", "Marth", "Master Hand", "Metroid", "Kraid", "Mother Brain", "Ridley", "Samus Aran", "Mia", "Mr. Game & Watch", "Mr. Saturn", "Ness", "Bombette", "Goombario", "Kooper", "Lady Bow", "Parakarry", "Watt", "Admiral Bobbery", "Flurrie", "Goombella", "Grodus", "Koops", "Ms. Mowz", "Vivian", "X-Nauts", "Paula", "Pauline", "Peach", "Pico", "Pikmin", "Captain Olimar", "Louie", "Purple Pikmin", "Red Pikmin", "Yellow Pikmim", "Blue Pikmim", "Pit", "Princess Daisy", "Poo", "Roy", "Samurai Goroh", "Sandbag", "Saturos", "Shyguy", "Sigurd", "Smithy", "Sow Joan", "Sparky", "Sgt Cortez", "Star Fox", "Andrew Oikonny", "Andross", "Falco Lombardi", "Fox McCloud", "General Pepper", "General Scales", "James McCloud", "Krystal", "Leon Powalski", "Panther Caroso", "Peppy Hare", "Pigma Dengar", "ROB 64", "Slippy Toad", "Wolf O'Donnell", "Thiana", "Toad", "Toadette", "Tom Nook", "Viruses", "Waddle Dee", "Waluigi", "Wario", "Wart", "Wiggler", "Yoshi",
+            ];
+            const randomName = () => names[Math.floor(Math.random() * names.length)];
             createApp({
                 setup() {
-                    const message = ref(`Your project name is: ${randomName}`)
+                    const message = ref(`Your project name is: ${randomName()}`);
+
+                    const updateMessage = () => {
+                        message.value = `Your project name is: ${randomName()}`;
+                    };
+
                     return {
-                        message
+                        message,
+                        updateMessage,
                     }
                 }
             }).mount('#app');
