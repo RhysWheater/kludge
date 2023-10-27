@@ -8,17 +8,26 @@
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css">
     </head>
     <body>
-        <section>
-            <h1>Kludge</h1>
-            <div id="app" >
-                {{ message }}
-                <button @click="updateMessage" class="button is-primary">New name</button>
-            </div>
+        <section class="section">
+            <section class="section">
+                <h1 class="title">Kludge</h1>
+                <h2 class="subtitle">
+                    A simple webapp that generates random project names from a list of Nintendo characters.
+                </h2>
+            </section>
+            <section class="section">
+                <div id="app" class="container">
+                    <div class="block">{{ message }}</div>
+                    <div class="block">
+                        <button @click="updateMessage" class="button is-primary">New name</button>
+                    </div>
+                </div>
+            </section>
         </section>
         <script>
             const { createApp, ref } = Vue;
             const names = [
-                "Ashlee", "Ayra", "Baby Luigi", "Baby Mario", "Birdo", "Bob-omb", "Boo", "Bubbles", "Buzz Buzz", "Captain Falcon", "Chain Chomp", "Cheep-Cheep", "Crazy Hand", "Dedede", "Diddy Kong", "Donkey Kong", "Donkey Kong, Jr.", "Dr. E.Gadd", "Dr. Mario", "Dr. Stewart", "Eliwood", "Felix", "Flying Ducks", "Frogfucius", "Garet", "Geno", "Goomba", "Hector", "Ice Climbers", "Jeff", "Jeigan", "Jenna", "Jody Summer", "Kamek", "Kirby", "Koopa Family", "Bowser", "Bowser Koopa Junior", "Bowser Jr.", "Kammy Koopa", "Koopa Kid", "Koopa Troopa", "Ganondorf", "Link", "Sheik", "Young Link", "Princess Zelda", "Lex", "Lip", "Little Mac", "Luigi", "Lyndis", "Mario", "Marth", "Master Hand", "Metroid", "Kraid", "Mother Brain", "Ridley", "Samus Aran", "Mia", "Mr. Game & Watch", "Mr. Saturn", "Ness", "Bombette", "Goombario", "Kooper", "Lady Bow", "Parakarry", "Watt", "Admiral Bobbery", "Flurrie", "Goombella", "Grodus", "Koops", "Ms. Mowz", "Vivian", "X-Nauts", "Paula", "Pauline", "Peach", "Pico", "Pikmin", "Captain Olimar", "Louie", "Purple Pikmin", "Red Pikmin", "Yellow Pikmim", "Blue Pikmim", "Pit", "Princess Daisy", "Poo", "Roy", "Samurai Goroh", "Sandbag", "Saturos", "Shyguy", "Sigurd", "Smithy", "Sow Joan", "Sparky", "Sgt Cortez", "Star Fox", "Andrew Oikonny", "Andross", "Falco Lombardi", "Fox McCloud", "General Pepper", "General Scales", "James McCloud", "Krystal", "Leon Powalski", "Panther Caroso", "Peppy Hare", "Pigma Dengar", "ROB 64", "Slippy Toad", "Wolf O'Donnell", "Thiana", "Toad", "Toadette", "Tom Nook", "Viruses", "Waddle Dee", "Waluigi", "Wario", "Wart", "Wiggler", "Yoshi",
+                "Ashlee", "Ayra", "Baby Luigi", "Baby Mario", "Birdo", "Bob-omb", "Boo", "Bubbles", "Buzz Buzz", "Captain Falcon", "Chain Chomp", "Cheep-Cheep", "Crazy Hand", "Dedede", "Diddy Kong", "Donkey Kong", "Donkey Kong, Jr.", "Dr. E.Gadd", "Dr. Mario", "Dr. Stewart", "Eliwood", "Felix", "Flying Ducks", "Frogfucius", "Garet", "Geno", "Goomba", "Hector", "Ice Climbers", "Jeff", "Jeigan", "Jenna", "Jody Summer", "Kamek", "Kirby", "Koopa Family", "Bowser", "Bowser Koopa Junior", "Bowser Jr.", "Kammy Koopa", "Koopa Kid", "Koopa Troopa", "Ganondorf", "Link", "Sheik", "Young Link", "Princess Zelda", "Lex", "Lip", "Little Mac", "Luigi", "Lyndis", "Mario", "Marth", "Master Hand", "Metroid", "Kraid", "Mother Brain", "Ridley", "Samus Aran", "Mia", "Mr. Game & Watch", "Mr. Saturn", "Ness", "Bombette", "Goombario", "Kooper", "Lady Bow", "Parakarry", "Watt", "Admiral Bobbery", "Flurrie", "Goombella", "Grodus", "Koops", "Ms. Mowz", "Vivian", "X-Nauts", "Paula", "Pauline", "Peach", "Pico", "Pikmin", "Captain Olimar", "Louie", "Purple Pikmin", "Red Pikmin", "Yellow Pikmim", "Blue Pikmim", "Pit", "Princess Daisy", "Roy", "Samurai Goroh", "Sandbag", "Saturos", "Shyguy", "Sigurd", "Smithy", "Sow Joan", "Sparky", "Sgt Cortez", "Star Fox", "Andrew Oikonny", "Andross", "Falco Lombardi", "Fox McCloud", "General Pepper", "General Scales", "James McCloud", "Krystal", "Leon Powalski", "Panther Caroso", "Peppy Hare", "Pigma Dengar", "ROB 64", "Slippy Toad", "Wolf O'Donnell", "Thiana", "Toad", "Toadette", "Tom Nook", "Viruses", "Waddle Dee", "Waluigi", "Wario", "Wart", "Wiggler", "Yoshi",
             ];
             const randomName = () => names[Math.floor(Math.random() * names.length)];
             createApp({
